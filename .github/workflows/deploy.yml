@@ -24,8 +24,8 @@ jobs:
       - name: Build and push API image
         uses: docker/build-push-action@v5
         with:
-          context: ./AuthApi
-          file: ./AuthApi/Dockerfile
+          context: ./AuthApi/AuthApi
+          file: ./AuthApi/AuthApi/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/authapi-api:latest
 
