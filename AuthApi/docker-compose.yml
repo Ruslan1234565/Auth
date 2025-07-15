@@ -2,9 +2,7 @@ version: '3.9'
 
 services:
   api:
-    build:
-      context: ./AuthApi/AuthApi
-      dockerfile: Dockerfile
+    image: ruslan453/authapi-api:latest
     ports:
       - "5000:8080"
     environment:
@@ -23,9 +21,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
   frontend:
-    build:
-      context: ../AuthFrontend/authfrontend
-      dockerfile: Dockerfile
+    image: ruslan453/authapi-frontend:latest
     ports:
       - "3000:80"
     stdin_open: true
