@@ -48,6 +48,6 @@ jobs:
           username: ${{ secrets.AZURE_VM_USER }}
           key: ${{ secrets.AZURE_VM_SSH_KEY }}
           script: |
-            cd /home/azureuser/Auth
+            cd /home/zamanov/Auth
             docker compose pull
             docker compose up -d 
