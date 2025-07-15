@@ -10,6 +10,12 @@ services:
       - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=authdb;Username=postgres;Password=postgres
     depends_on:
       - db
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
   db:
     image: postgres:15
     environment:
@@ -26,5 +32,9 @@ services:
       - "3000:80"
     stdin_open: true
     tty: true
+    restart: always
+    depends_on:
+      api:
+        condition: service_healthy
 volumes:
   pgdata: 
